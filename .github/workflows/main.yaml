@@ -46,5 +46,5 @@ jobs:
             whoami
             sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
             sudo docker stop app-demo || true && docker rm app-demo || true
-            sudo docker pull ${{ vars.CONTAINER_IMAGE }}
-            sudo docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} ${{ vars.CONTAINER_IMAGE }}
+            sudo docker pull saufiroja/${{ vars.CONTAINER_IMAGE }}
+            sudo docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} saufiroja/${{ vars.CONTAINER_IMAGE }}
