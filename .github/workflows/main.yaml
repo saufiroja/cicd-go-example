@@ -44,5 +44,6 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             whoami
-            docker compose down -v
-            docker compose up -d
+            docker stop app-demo || true && docker rm app-demo || true
+            docker pull ${{ vars.IMAGE_NAME }}
+            docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} ${{ vars.IMAGE_NAME }}
