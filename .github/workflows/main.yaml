@@ -44,7 +44,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             whoami
-            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
-            docker stop app-demo || true && docker rm app-demo || true
-            docker pull ${{ vars.CONTAINER_IMAGE }}
-            docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} ${{ vars.CONTAINER_IMAGE }}
+            sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
+            sudo docker stop app-demo || true && docker rm app-demo || true
+            sudo docker pull ${{ vars.CONTAINER_IMAGE }}
+            sudo docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} ${{ vars.CONTAINER_IMAGE }}
