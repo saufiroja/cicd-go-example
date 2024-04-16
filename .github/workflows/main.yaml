@@ -45,5 +45,5 @@ jobs:
           script: |
             whoami
             docker stop app-demo || true && docker rm app-demo || true
-            docker pull ${{ vars.IMAGE_NAME }}
-            docker run -d -p 8080:8080 --name app-demo ${{ vars.IMAGE_NAME }}
+            docker pull ${{ vars.CONTAINER_IMAGE }}
+            docker run -d -p 8080:8080 --name ${{ vars.CONTAINER_NAME }} ${{ vars.CONTAINER_IMAGE }}
